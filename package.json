@@ -2,11 +2,13 @@
   "name": "video-platform",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "live-server"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Juan David Osorio Ortiz <jdoo1115@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }
