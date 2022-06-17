@@ -10,7 +10,7 @@
 
   <body>
     <header>
-      <h1>PlatziMediaPlayer.js</h1>
+      <h1>MediaPlayer.js</h1>
       <p>An extensible media player.</p>
     </header>
 
@@ -22,34 +22,6 @@
       <button id="play-btn">Play/Pause</button>
     </main>
 
-    <script>
-     const video = document.querySelector("#video");
-     const playBtn = document.querySelector("#play-btn");
-
-     class MediaPlayer {
-      #_media;
-      constructor(mediaElement) {
-        this._media = mediaElement;
-      }
-
-      isPaused() {
-        return this._media.paused;
-      }
-
-      pause() {
-        this._media.pause();
-      }
-
-      play() {
-        this._media.play();
-      }
-     }
-
-      const player = new MediaPlayer( video );
-
-      playBtn.addEventListener("click", () => {
-        (player.isPaused()) ? player.play() : player.pause();
-      })
-    </script>
+    <script type="module" src="/assets/js/index.js"></script>
   </body>
 </html>
