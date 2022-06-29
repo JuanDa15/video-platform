@@ -1,49 +1,49 @@
-import { muteActions, reproductionActions } from './handlers/video-btns.handles.js';
+import { muteActions, reproductionActions } from './handlers/video-btns.handles';
 
 class MediaPlayer {
-  #_media;
-  #_plugins;
+  media;
+  plugins;
   constructor(mediaElement, plugins) {
-    this.#_media = mediaElement;
-    this.#_plugins = plugins || [];
+    this.media = mediaElement;
+    this.plugins = plugins || [];
 
-    this.#_initPlugins();
+    this.initPlugins();
   }
   get mediaElement() {
-    return this.#_media;
+    return this.media;
   }
 
   get isPaused() {
-    return this.#_media.paused;
+    return this.media.paused;
   }
 
   get isMuted() {
-    return this.#_media.muted;
+    return this.media.muted;
   }
   
-  #_initPlugins(){
-    this.#_plugins.forEach( plugin => {
+  initPlugins(){
+    this.plugins.forEach( plugin => {
       plugin.run( this );
     });
   }
 
   pause() {
-    this.#_media.pause();
+    this.media.pause();
     reproductionActions('pause');
   }
 
   play() {
-    this.#_media.play();
+    this.media.play();
     reproductionActions('play');
   }
 
   mute() {
-    this.#_media.muted = true;
+    this.media.muted = true;
     muteActions('mute');
   }
 
   unmute() {
-    this.#_media.muted = false;
+    this.media.muted = false;
     muteActions('unmute');
   }
 }

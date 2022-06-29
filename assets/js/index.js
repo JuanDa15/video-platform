@@ -1,10 +1,8 @@
 'use strict'
 
-import { muteActions, reproductionActions } from './handlers/video-btns.handles.js';
-
-import MediaPlayer from './MediaPlayer.js';
-import AutoPlay from './plugins/autoPlay.js';
-import AutoPause from './plugins/autoPause.js';
+import MediaPlayer from './MediaPlayer';
+import AutoPlay from './plugins/autoPlay';
+import AutoPause from './plugins/autoPause';
 
 const video = document.querySelector("#video");
 const playBtn = document.querySelector("#play-btn");
@@ -25,5 +23,8 @@ muteBtn.addEventListener("click", () => {
   (player.isMuted) ?
     player.unmute():
     player.mute();
-
 });
+
+if ('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/sw.js').catch(error => console.log(new Error(error)))
+}
