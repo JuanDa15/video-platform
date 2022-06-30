@@ -1,13 +1,13 @@
 import { muteActions, reproductionActions } from './handlers/video-btns.handles';
 
 class MediaPlayer {
-  media;
-  plugins;
-  constructor(mediaElement, plugins) {
+  media: HTMLMediaElement;
+  plugins: any[];
+  constructor(mediaElement: HTMLMediaElement, plugins: any[]) {
     this.media = mediaElement;
     this.plugins = plugins || [];
 
-    this.initPlugins();
+    this._initPlugins();
   }
   get mediaElement() {
     return this.media;
@@ -21,7 +21,7 @@ class MediaPlayer {
     return this.media.muted;
   }
   
-  initPlugins(){
+  private _initPlugins(){
     this.plugins.forEach( plugin => {
       plugin.run( this );
     });

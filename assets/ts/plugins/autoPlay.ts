@@ -1,8 +1,10 @@
+import MediaPlayer from "../MediaPlayer";
+
 class AutoPlay {
 
   constructor(){}
 
-  run( mediaElement ){
+  run( mediaElement: MediaPlayer ){
     mediaElement.mute();
     mediaElement.play();
   }
