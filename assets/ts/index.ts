@@ -1,15 +1,14 @@
 import MediaPlayer from './MediaPlayer';
 import AutoPlay from './plugins/autoPlay';
 import AutoPause from './plugins/autoPause';
+import AdsPlugin from './plugins/ads/index';
 
 const video: HTMLMediaElement | null = document.querySelector("#video");
 const playBtn: Element | null = document.querySelector("#play-btn");
 const muteBtn: Element | null = document.querySelector("#mute-btn");
 
-const autoPlayPlugin: AutoPlay = new AutoPlay();
-const autoPausePlugin: AutoPause = new AutoPause();
 
-const player = new MediaPlayer( video!, [ autoPlayPlugin, autoPausePlugin ] );
+const player = new MediaPlayer( video!, [ new AutoPlay(), new AutoPause(), new AdsPlugin() ] );
 
 playBtn?.addEventListener("click", () => {
   (player.isPaused) ?
